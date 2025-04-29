@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <router-link class="navbar-brand d-flex align-items-center" to="/home">
+            <router-link class="navbar-brand d-flex align-items-center" to="/app">
                 <img src="/icon.png" alt="Logo" class="me-2" height="30" />
                 <span>BolDilems</span>
             </router-link>
@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/app" aria-current="page">Cargar Pregunstas</router-link>
+                        <router-link class="nav-link" to="/load" aria-current="page">Cargar Pregunstas</router-link>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
