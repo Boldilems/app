@@ -1,9 +1,9 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <router-link class="navbar-brand d-flex align-items-center" to="/">
-                <img src="https://flowbite.com/docs/images/logo.svg" alt="Logo" class="me-2" height="30" />
-                <span>Flowbite</span>
+            <router-link class="navbar-brand d-flex align-items-center" to="/home">
+                <img src="/icon.png" alt="Logo" class="me-2" height="30" />
+                <span>BolDilems</span>
             </router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/app" aria-current="page">Home</router-link>
+                        <router-link class="nav-link" to="/app" aria-current="page">Cargar Pregunstas</router-link>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
