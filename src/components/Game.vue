@@ -31,7 +31,9 @@
 
     <div v-else class="text-center mt-4">
         <p class="fs-4 fw-bold">¡Juego finalizado!</p>
-        <!-- Aquí podrías añadir botón para descargar JSON -->
+        <button @click="downloadResponses" class="btn btn-success mt-4">
+            Descargar Respuestas
+        </button>
     </div>
 </template>
 
@@ -45,19 +47,37 @@ const selectedAnswer = ref(null)
 const currentIndex = ref(0)
 const currentQuestion = computed(() => store.preguntas[currentIndex.value])
 
-
 function submitAnswer() {
     if (!selectedAnswer.value) return
 
     const jugadorKey = `jugador1`
     store.respuestas[jugadorKey].push({
         pregunta: currentQuestion.value.text,
-        respuesta: selectedAnswer.value
+        respuesta: selectedAnswer.value,
+        opciones: currentQuestion.value.options
     })
 
     selectedAnswer.value = null
     currentIndex.value++
+
+    // Llamar a downloadResponses si se llega al final del juego
+    if (currentIndex.value >= store.preguntas.length) {
+        downloadResponses()
+    }
 }
 
+function downloadResponses() {
+    const jugadorKey = `jugador1`
+    const respuestas = store.respuestas[jugadorKey]
 
+    const blob = new Blob([JSON.stringify(respuestas, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'respuestas.json'
+    link.click()
+
+    URL.revokeObjectURL(url)
+}
 </script>
