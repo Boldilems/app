@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/" aria-current="page">Home</router-link>
+                        <router-link class="nav-link" to="/app" aria-current="page">Home</router-link>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
