@@ -9,7 +9,10 @@ export const useGameStore = defineStore('game', {
     }),
     actions: {
         cargarPreguntas(data) {
-            this.preguntas = data
+            this.preguntas = data.map(p => ({
+                text: p.dilem,
+                options: p.opciones.map(o => o.opcion)
+            }))
         },
         setNumJugadores(num) {
             this.numJugadores = num

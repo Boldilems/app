@@ -37,17 +37,27 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useGameStore } from '../stores/game'
+import { useGameStore } from '../stores/useGameStore'
 
 const store = useGameStore()
 
 const selectedAnswer = ref(null)
-const currentQuestion = computed(() => store.questions[store.currentIndex])
+const currentIndex = ref(0)
+const currentQuestion = computed(() => store.preguntas[currentIndex.value])
+
 
 function submitAnswer() {
     if (!selectedAnswer.value) return
-    store.selectAnswer(selectedAnswer.value)
+
+    const jugadorKey = `jugador1`
+    store.respuestas[jugadorKey].push({
+        pregunta: currentQuestion.value.text,
+        respuesta: selectedAnswer.value
+    })
+
     selectedAnswer.value = null
-    store.nextQuestion()
+    currentIndex.value++
 }
+
+
 </script>
