@@ -7,7 +7,7 @@ import GameView from '../views/GameView.vue'
 
 
 const routes = [
-    { path: '/', component: HomeView },
+    { path: '/app', component: HomeView },
     { path: '/jugar', component: GameView },
     // { path: '/resumen', component: SummaryView },
 ]
