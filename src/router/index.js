@@ -8,6 +8,7 @@ import HomeView from '../views/HomeView.vue'
 
 
 const routes = [
+    { path: '/', redirect: '/app/' },
     { path: '/app/', component: HomeView, name: 'app' },
     { path: '/app/load', component: LoadDilemsView, name: 'loadDilems' },
     { path: '/app/jugar', component: GameView, name: 'playDilems' },
