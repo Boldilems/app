@@ -1,24 +1,27 @@
+<script setup>
+import AppMenu from './components/AppMenu.vue'
+import AppMessages from './components/AppMessages.vue'
+</script>
+
 <template>
   <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-    <!-- Menú -->
+
     <AppMenu />
 
-    <header class="bg-blue-600 dark:text-gray-100  py-4 shadow">
+    <header class="bg-blue-600 dark:text-gray-100 py-4 shadow">
       <div class="container mx-auto px-4">
         <h1 class="text-2xl font-semibold">Juego de Preguntas</h1>
       </div>
     </header>
 
-    <main class="container mx-auto px-4 py-6">
+    <main class="container-fluid mx-auto px-5 py-5 flex justify-center items-center">
       <RouterView />
     </main>
   </div>
+  <AppMessages />
 </template>
 
-<script setup>
-import AppMenu from './components/AppMenu.vue'; // Asegúrate de importar el componente
-</script>
 
-<style scoped>
-/* Aquí puedes agregar estilos adicionales si es necesario */
+<style>
+/* Add any global styles here */
 </style>
