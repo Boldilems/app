@@ -1,5 +1,6 @@
 <template>
-    <div class="d-flex justify-content-center align-items-center w-100">
+    <h1 class="m-2 text-center">Cargar Preguntas Personalizadas</h1>
+    <div class=" d-flex justify-content-center align-items-center w-100">
         <label for="dropzone-file"
             class="d-flex flex-column justify-content-center align-items-center w-100 max-w-50 h-100 border border-2 border-secondary rounded p-4 bg-light text-center cursor-pointer">
             <div class="d-flex flex-column justify-content-center align-items-center py-3">

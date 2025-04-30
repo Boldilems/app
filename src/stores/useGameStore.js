@@ -36,5 +36,27 @@ export const useGameStore = defineStore('game', {
                 this.respuestas[`jugador${i}`] = []
             }
         },
+
+        async cargarPreguntasPredefinidas(name) {
+            if (!name) {
+                console.error('No se ha proporcionado un nombre de archivo para cargar las preguntas predefinidas.');
+                return;
+            }
+
+            const path = `/app/DefaultQuestions/${name}/${name}.json`;
+
+            try {
+                const response = await fetch(path);
+                if (!response.ok) {
+                    throw new Error('Error al cargar el archivo JSON.');
+                }
+
+                const data = await response.json();
+                this.cargarPreguntas(data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        },
+
     }
 })
