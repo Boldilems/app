@@ -14,17 +14,31 @@ import FieldCodeJson from '../components/FieldCodeJson.vue'
 
 import { ref } from 'vue'
 
-const data = ref({
-    preguntas: [
+const data = ref(
+    [
         {
-            text: "¿Qué prefieres?",
-            options: ["Opción 1", "Opción 2"]
+            "dilem": "Que prefieres?",
+            "opciones": [
+                {
+                    "opcion": "Respuesta 1"
+                },
+                {
+                    "opcion": "Respuesta 2"
+                }
+            ]
         },
         {
-            text: "¿Qué prefieres?",
-            options: ["Opción 1", "Opción 2"]
-        }
+            "dilem": "Que prefieres?",
+            "opciones": [
+                {
+                    "opcion": "Respuesta 1"
+                },
+                {
+                    "opcion": "Respuesta 2"
+                }
+            ]
+        },
     ]
-})
+)
 
 </script>

@@ -1,8 +1,8 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <router-link class="navbar-brand d-flex align-items-center" to="/app/">
-                <img src="/icon.png" alt="Logo" class="me-2" height="30" />
+            <router-link class="navbar-brand d-flex align-items-center" :to="{ name: 'app' }">
+                <img src=" /icon.png" alt="Logo" class="me-2" height="30" />
                 <span>BolDilems</span>
             </router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -12,7 +12,10 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/app/load/" aria-current="page">Cargar
+                        <router-link class="nav-link" :to="{ name: 'app' }" aria-current="page">Home</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'loadDilems' }" aria-current="page">Cargar
                             Pregunstas</router-link>
                     </li>
                     <!-- <li class="nav-item dropdown">
@@ -25,7 +28,7 @@
                         </ul>
                     </li> -->
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/app/jugar/">Jugar</router-link>
+                        <router-link class="nav-link" :to="{ name: 'playDilems' }">Jugar</router-link>
                     </li>
                 </ul>
             </div>
@@ -33,7 +36,7 @@
     </nav>
 </template>
 
-<script setup>
+<script>
 // No se requiere lógica adicional porque Vue Router maneja la navegación.
 </script>
 

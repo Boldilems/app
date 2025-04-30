@@ -35,7 +35,7 @@ function handleFileUpload(event) {
             const data = JSON.parse(e.target.result)
             if (!Array.isArray(data)) throw new Error('El archivo debe contener un array de preguntas.')
             store.cargarPreguntas(data)
-            router.push('/jugar') // o a /jugadores si creamos pantalla intermedia
+            router.push({ name: 'playDilems' })
         } catch (error) {
             alert('Archivo inválido: ' + error.message)
         }
