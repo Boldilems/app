@@ -14,7 +14,7 @@ import AppMessages from './components/AppMessages.vue'
       </div>
     </header>
 
-    <main class="container mx-auto px-4 py-6">
+    <main class="container-fluid mx-auto px-5 py-5 flex justify-center items-center">
       <RouterView />
     </main>
   </div>
