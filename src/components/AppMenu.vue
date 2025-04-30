@@ -16,7 +16,7 @@
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'loadDilems' }" aria-current="page">Cargar
-                            Pregunstas</router-link>
+                            Preguntas</router-link>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
