@@ -14,34 +14,30 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { useGameStore } from '../stores/useGameStore'
+import { useRouter } from 'vue-router'
 
-export default {
-    name: 'DilemasPredefinidos',
-    setup(props, { emit }) {
-        const store = useGameStore()
+const store = useGameStore()
+const router = useRouter()
 
-        const files = [
-            'dilems',
-            'dilems2',
-            'dilems3',
-            'dilems4',
-            'dilems5',
-            'dilems6',
-        ]
+const files = [
+    'dilems',
+    'dilems2',
+    'dilems3',
+    'dilems4',
+    'dilems5',
+    'dilems6',
+]
 
-        async function dilemas(file) {
-            await store.cargarPreguntasPredefinidas(file)
-        }
-
-        return {
-            files,
-            dilemas,
-        }
-    },
+async function dilemas(file) {
+    await store.cargarPreguntasPredefinidas(file)
+    redirect()
 }
 
+function redirect() {
+    router.push({ name: 'playDilems' })
+}
 </script>
 
 <style>
