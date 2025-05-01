@@ -1,26 +1,31 @@
 <template>
-    <div class="respuesta-option d-flex justify-content-center align-items-center text-white fw-bold"
-        :class="variant === 'one' ? 'bg-primary' : 'bg-danger'" @click="$emit('select', option)">
-        <input class="visually-hidden" type="radio" :id="'option-' + index" name="respuesta" :value="option"
-            :checked="selected === option" @change="$emit('select', option)" />
-        <label class="stretched-label text-center w-100 h-100 d-flex justify-content-center align-items-center"
-            :for="'option-' + index">
-            {{ option }}
-        </label>
+    <div class="respuesta-option-wrapper position-relative">
+        <div class="respuesta-option d-flex justify-content-center align-items-center text-white fw-bold"
+            :class="variant === 'one' ? 'bg-primary' : 'bg-danger'" @click="$emit('select', option)">
+            <div class="respuesta-option overlay-jugador">
+                <span v-for="(jugador, index) in jugadores" :key="index" :style="{ backgroundColor: jugador.color }">{{
+                    jugador.name }}</span>
+            </div>
+            <input class="visually-hidden" type="radio" :id="'option-' + index" name="respuesta" :value="option"
+                :checked="selected === option" @change="$emit('select', option)" />
+            <label class="stretched-label text-center w-100 h-100 d-flex justify-content-center align-items-center"
+                :for="'option-' + index">
+                {{ option }}
+            </label>
+        </div>
     </div>
 </template>
 
-<script setup>
-defineProps({
-    option: String,
-    index: Number,
-    selected: String,
-    variant: {
-        type: String,
-        default: 'one'
+<script>
+export default {
+    props: {
+        option: String,
+        index: Number,
+        selected: String,
+        jugadores: Array, // Recibimos el array de jugadores
+        variant: String
     }
-})
-defineEmits(['select'])
+}
 </script>
 
 <style scoped>
@@ -31,7 +36,6 @@ defineEmits(['select'])
     font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.2s ease;
-    overflow: hidden;
 }
 
 .respuesta-option:hover {
@@ -47,7 +51,38 @@ defineEmits(['select'])
     line-clamp: 3;
 }
 
+.overlay-jugador.respuesta-option {
+    position: absolute;
+    top: 0;
+    height: 25%;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    align-items: start;
+    font-size: 1.1rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0 10px 0 10px;
+}
 
+.overlay-jugador.respuesta-option:hover {
+    transform: scale(1);
+    box-shadow: 0 0;
+}
+
+.overlay-jugador.respuesta-option span {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.overlay-jugador.respuesta-option span:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
 
 @media (min-width: 768px) {
     .respuesta-option {

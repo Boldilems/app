@@ -5,7 +5,9 @@
             <!-- Respuesta 1 -->
             <div class="col-12 col-md-4">
                 <FieldRespuesta :option="store.dilemsCurrent.options[0]" :index="0" :selected="selectedRespuesta"
-                    :variant="'one'" @select="selectedRespuesta = $event" />
+                    variant="one" @select="selectedRespuesta = $event"
+                    :jugadores="getJugadoresPorOpcion(store.dilemsCurrent.options[0])" />
+
             </div>
 
             <!-- Botones -->
@@ -21,7 +23,9 @@
             <!-- Respuesta 2 -->
             <div class="col-12 col-md-4">
                 <FieldRespuesta :option="store.dilemsCurrent.options[1]" :index="1" :selected="selectedRespuesta"
-                    :variant="'two'" @select="selectedRespuesta = $event" />
+                    variant="two" @select="selectedRespuesta = $event"
+                    :jugadores="getJugadoresPorOpcion(store.dilemsCurrent.options[1])" />
+
             </div>
         </div>
     </div>
@@ -58,5 +62,28 @@ function endGame() {
 }
 function nextGame() {
     store.continueGame()
+}
+function getJugadoresPorOpcion(option) {
+    let jugadores = []
+
+    if (option === selectedRespuesta.value) {
+        jugadores.push(store.jugadorCurrent)
+    }
+
+
+    if (store.jugadores.length > 1) {
+        store.jugadores.forEach(jugador => {
+            if (jugador.id !== store.jugadorCurrent.id) {
+                const j = store.respuestas[jugador.id]
+                j.respuestas.forEach((value) => {
+                    if (value.respuesta === option) {
+                        jugadores.push(jugador)
+                    }
+                })
+            }
+        });
+
+    }
+    return jugadores
 }
 </script>
