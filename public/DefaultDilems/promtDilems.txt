@@ -1,0 +1,29 @@
+Hazme una tanda de 17 preguntas tipo “¿Qué prefieres?” con estilo <ESTILO>,
+dinámico y con un toque provocador o reflexivo, como si fueran parte de un juego o podcast de conversaciones intensas.
+No uses siempre la frase “¿Qué prefieres?”, puedes usar frases tipo “Te ofrecen dos futuros...”,
+“Solo puedes elegir una...”, “Imagina que...”, etc. Las opciones deben ser opuestas, reales y que generen debate.
+Devuélvelo en formato JSON:
+[
+  {
+    "dilem": "Que prefieres?",
+    "opciones": [
+      {
+        "opcion": "Respuesta 1"
+      },
+      {
+        "opcion": "Respuesta 2"
+      }
+    ]
+  },
+  {
+    "dilem": "Que prefieres?",
+    "opciones": [
+      {
+        "opcion": "Respuesta 1"
+      },
+      {
+        "opcion": "Respuesta 2"
+      }
+    ]
+  }
+]
