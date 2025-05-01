@@ -1,0 +1,7 @@
+Diseña una imagen de portada en estilo gráfico digital plano (flat design) y minimalista para una app interactiva
+dirigida a jóvenes. La imagen debe incluir un texto principal llamativo 
+(por ejemplo: “CONOCERTE MEJOR”, “¿QUÉ PREFIERES?”, “DILEMAS JÓVENES”),
+con tipografía moderna y colores vibrantes, como coral, amarillo o azul eléctrico.
+Agrega un ícono simbólico relacionado con decisiones o dilemas, como una silueta humana con signos de interrogación,
+símbolos de elección (✓/✗), o flechas opuestas. La composición debe ser simple, visualmente impactante,
+y adecuada como portada para una web o app divertida y juvenil.

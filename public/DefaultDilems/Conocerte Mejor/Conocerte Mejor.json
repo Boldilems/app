@@ -1,0 +1,200 @@
+[
+    {
+        "dilem": "¿Preferirías poder volar o hacerte invisible?",
+        "opciones": [
+            {
+                "opcion": "Volar"
+            },
+            {
+                "opcion": "Hacerte invisible"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué superpoder tendrías?",
+        "opciones": [
+            {
+                "opcion": "Leer la mente"
+            },
+            {
+                "opcion": "Viajar en el tiempo"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué preferirías perder para siempre?",
+        "opciones": [
+            {
+                "opcion": "Internet"
+            },
+            {
+                "opcion": "Comida rápida"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Vacaciones soñadas?",
+        "opciones": [
+            {
+                "opcion": "Aventura extrema"
+            },
+            {
+                "opcion": "Relax total"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Cómo preferirías pasar un domingo perfecto?",
+        "opciones": [
+            {
+                "opcion": "Maratón de pelis en casa"
+            },
+            {
+                "opcion": "Excursión improvisada"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Si fueras un personaje de ficción?",
+        "opciones": [
+            {
+                "opcion": "Héroe épico"
+            },
+            {
+                "opcion": "Villano carismático"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Te gustaría más trabajar siempre en equipo o siempre solo?",
+        "opciones": [
+            {
+                "opcion": "Equipo"
+            },
+            {
+                "opcion": "Solo"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Si tuvieras que vivir sin uno?",
+        "opciones": [
+            {
+                "opcion": "Música"
+            },
+            {
+                "opcion": "Cine"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué cambiarías si pudieras?",
+        "opciones": [
+            {
+                "opcion": "Tu pasado"
+            },
+            {
+                "opcion": "Tu futuro"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué valorarías más en una pareja?",
+        "opciones": [
+            {
+                "opcion": "Lealtad absoluta"
+            },
+            {
+                "opcion": "Diversión infinita"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Si tuvieras que elegir tu legado?",
+        "opciones": [
+            {
+                "opcion": "Ser recordado por tu inteligencia"
+            },
+            {
+                "opcion": "Ser recordado por tu bondad"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Si pudieras saberlo ahora?",
+        "opciones": [
+            {
+                "opcion": "¿Cómo morirás?"
+            },
+            {
+                "opcion": "¿Cuándo morirás?"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué preferirías?",
+        "opciones": [
+            {
+                "opcion": "Amor verdadero pero breve"
+            },
+            {
+                "opcion": "Amor largo pero rutinario"
+            }
+        ]
+    },
+    {
+        "dilem": "¿En quién confiarías más?",
+        "opciones": [
+            {
+                "opcion": "Alguien que siempre dice la verdad aunque duela"
+            },
+            {
+                "opcion": "Alguien que a veces miente para protegerte"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué te daría más miedo perder?",
+        "opciones": [
+            {
+                "opcion": "Tu memoria"
+            },
+            {
+                "opcion": "Tu identidad"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Dónde preferirías encontrarte en la vida?",
+        "opciones": [
+            {
+                "opcion": "Con total estabilidad pero poca pasión"
+            },
+            {
+                "opcion": "Con mucha pasión pero gran incertidumbre"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué elegirías como final de vida?",
+        "opciones": [
+            {
+                "opcion": "Tener mucho éxito pero pocos amigos"
+            },
+            {
+                "opcion": "Tener una vida tranquila llena de cariño"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué preferirías que te dijeran al final de tu vida?",
+        "opciones": [
+            {
+                "opcion": "“Cambiaste el mundo”"
+            },
+            {
+                "opcion": "“Mejoraste mi vida”"
+            }
+        ]
+    }
+]

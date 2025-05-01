@@ -1,0 +1,189 @@
+[
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Amar profundamente y no ser correspondido"
+            },
+            {
+                "opcion": "Que te amen profundamente sin poder corresponder"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Una relación apasionada pero inestable"
+            },
+            {
+                "opcion": "Una tranquila pero sin chispa"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Conocer al amor de tu vida y perderlo"
+            },
+            {
+                "opcion": "Nunca conocerlo pero vivir en paz"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Una cita perfecta pero solo una"
+            },
+            {
+                "opcion": "Muchas citas normales con alguien especial"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Mensajes de amor todos los días"
+            },
+            {
+                "opcion": "Un gran gesto romántico una vez al año"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Una relación a distancia con mucho amor"
+            },
+            {
+                "opcion": "Una relación cercana sin pasión"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Decir “te amo” primero"
+            },
+            {
+                "opcion": "Esperar a que lo digan"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Que tu pareja sea tu mejor amigo/a"
+            },
+            {
+                "opcion": "Que te vuelva loco/a de pasión"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Vivir un amor secreto"
+            },
+            {
+                "opcion": "Un amor que todos critican"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Una conexión emocional intensa"
+            },
+            {
+                "opcion": "Una química física irresistible"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Revivir tu primer amor"
+            },
+            {
+                "opcion": "Encontrar uno completamente nuevo"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Salir con alguien que siempre te hace reír"
+            },
+            {
+                "opcion": "Salir con alguien que siempre te escucha"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Una declaración de amor pública"
+            },
+            {
+                "opcion": "Una íntima y privada"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Una pareja que te escriba todo el día"
+            },
+            {
+                "opcion": "Una pareja que te vea sin celular toda la noche"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Amor sin celos"
+            },
+            {
+                "opcion": "Celos que demuestran amor"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Amar a alguien que no cree en el amor"
+            },
+            {
+                "opcion": "Amar a alguien que cree demasiado en él"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué prefieres?",
+        "opciones": [
+            {
+                "opcion": "Un amor de película que dure poco"
+            },
+            {
+                "opcion": "Un amor sencillo que dure toda la vida"
+            }
+        ]
+    }
+]

@@ -12,6 +12,7 @@
 
 <script>
 import { computed, defineProps } from 'vue'
+import { useGameStore } from '../stores/useGameStore'
 
 function syntaxHighlight(json) {
     json = json
@@ -54,11 +55,14 @@ export default {
             try {
                 const pretty = JSON.stringify(this.jsonObject, null, 2)
                 navigator.clipboard.writeText(pretty)
-                alert('Texto copiado al portapapeles')
+                this.$store.addMensaje('Texto copiado al portapapeles', 'success')
             } catch (error) {
-                alert('Error al copiar el texto')
+                this.$store.addMensaje('Error al copiar el texto', 'error')
             }
         }
+    },
+    created() {
+        this.$store = useGameStore()
     }
 }
 </script>

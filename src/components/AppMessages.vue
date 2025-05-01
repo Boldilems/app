@@ -32,4 +32,9 @@ function remove(id) {
 .fade-leave-to {
     opacity: 0;
 }
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
 </style>

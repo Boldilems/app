@@ -20,12 +20,10 @@ import { useGameStore } from '../stores/useGameStore'
 const store = useGameStore()
 
 const files = [
-    'dilems',
-    'dilems2',
-    'dilems3',
-    'dilems4',
-    'dilems5',
-    'dilems6',
+    'Fast Dilemas Casual',
+    'Conocerte Mejor',
+    'Dilems Amor Edition',
+    'Dilems Red PIll',
 ]
 
 async function dilemas(file) {

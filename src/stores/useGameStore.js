@@ -10,13 +10,11 @@ export const useGameStore = defineStore('game', {
         dilems: [],
         dilemsCurrentIndex: 0,
         dilemsCurrent: {},
-        respuestas: {
-            jugador1: [],
-            jugador2: [],
-        },
+        respuestas: null,
         mensajes: [],
         jugadorCurrent: {},
         jugadores: [],
+        continuar: true,
     }),
     actions: {
         cargarDilems(data) {
@@ -29,6 +27,7 @@ export const useGameStore = defineStore('game', {
             this.addMensaje('Dilems cargadas correctamente', 'success')
         },
         setJugadores(jugadores) {
+            this.respuestas = {}
             jugadores.forEach((jugador, index) => {
                 this.jugadores.push({
                     name: jugador.name,
@@ -63,25 +62,22 @@ export const useGameStore = defineStore('game', {
         saveRespuesta(respuesta) {
             const respuestas = this.respuestas[this.jugadorCurrent.id].respuestas.length
             this.respuestas[this.jugadorCurrent.id].respuestas[respuestas] = { dilems: this.dilems[this.dilemsCurrentIndex].text, respuesta: respuesta, opciones: this.dilems[this.dilemsCurrentIndex].options }
-            return this.nextJugador()
+            this.continuar = this.nextJugador()
         },
         continueGame() {
             this.dilems = []
             this.router.push({ name: 'loadDilems' })
-
         },
         resetGame() {
             this.dilems = []
             this.dilemsCurrentIndex = 0
             this.dilemsCurrent = {}
             this.numJugadores = null
-            this.respuestas = {
-                jugador1: [],
-                jugador2: [],
-            }
+            this.respuestas = null
             this.mensajes = []
             this.jugadorCurrent = {}
             this.jugadores = []
+            this.continuar = true
         },
         async cargarDilemsPredefinidas(name) {
             if (!name) {

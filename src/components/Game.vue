@@ -1,6 +1,6 @@
 <!-- src/components/Game.vue -->
 <template>
-    <div v-if="continuar" class="container-fluid h-100">
+    <div v-if="store.continuar" class="container-fluid h-100">
         <div class="row h-100 align-items-center justify-content-center g-4">
             <!-- Respuesta 1 -->
             <div class="col-12 col-md-4">
@@ -46,11 +46,10 @@ import FieldRespuesta from './FieldRespuesta.vue'
 
 const store = useGameStore()
 const selectedRespuesta = ref(null)
-let continuar = true
 
 function submitRespuesta() {
     if (!selectedRespuesta.value) return
-    continuar = store.saveRespuesta(selectedRespuesta.value);
+    store.saveRespuesta(selectedRespuesta.value);
     selectedRespuesta.value = null
 }
 
