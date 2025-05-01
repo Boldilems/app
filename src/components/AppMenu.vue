@@ -16,7 +16,14 @@
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'loadDilems' }" aria-current="page">Cargar
-                            Preguntas</router-link>
+                            Dilems</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'playDilems' }">Jugar</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'downloadDilems' }" aria-current="page">Descargar
+                            Respuestas</router-link>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -27,9 +34,7 @@
                             <li><router-link class="dropdown-item" to="/jugar">Jugar</router-link></li>
                         </ul>
                     </li> -->
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'playDilems' }">Jugar</router-link>
-                    </li>
+
                 </ul>
             </div>
         </div>

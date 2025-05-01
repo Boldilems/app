@@ -1,5 +1,5 @@
 <template>
-    <h1 class="m-2 text-center">Cargar Preguntas Personalizadas</h1>
+    <h1 class="m-2 text-center">Cargar Dilems Personalizadas</h1>
     <div class=" d-flex justify-content-center align-items-center w-100">
         <label for="dropzone-file"
             class="d-flex flex-column justify-content-center align-items-center w-100 max-w-50 h-100 border border-2 border-secondary rounded p-4 bg-light text-center cursor-pointer">
@@ -21,10 +21,8 @@
 
 <script setup>
 import { useGameStore } from '../stores/useGameStore'
-import { useRouter } from 'vue-router'
 
 const store = useGameStore()
-const router = useRouter()
 
 function handleFileUpload(event) {
     const file = event.target.files[0]
@@ -34,9 +32,9 @@ function handleFileUpload(event) {
     reader.onload = (e) => {
         try {
             const data = JSON.parse(e.target.result)
-            if (!Array.isArray(data)) throw new Error('El archivo debe contener un array de preguntas.')
-            store.cargarPreguntas(data)
-            router.push({ name: 'playDilems' })
+            if (!Array.isArray(data)) throw new Error('El archivo debe contener un array de dilems.')
+            store.cargarDilems(data)
+            store.router.push({ name: 'playDilems' })
         } catch (error) {
             alert('Archivo inválido: ' + error.message)
         }

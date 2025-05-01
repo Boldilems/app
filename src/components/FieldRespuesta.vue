@@ -1,7 +1,7 @@
 <template>
-    <div class="answer-option d-flex justify-content-center align-items-center text-white fw-bold"
+    <div class="respuesta-option d-flex justify-content-center align-items-center text-white fw-bold"
         :class="variant === 'one' ? 'bg-primary' : 'bg-danger'" @click="$emit('select', option)">
-        <input class="visually-hidden" type="radio" :id="'option-' + index" name="answer" :value="option"
+        <input class="visually-hidden" type="radio" :id="'option-' + index" name="respuesta" :value="option"
             :checked="selected === option" @change="$emit('select', option)" />
         <label class="stretched-label text-center w-100 h-100 d-flex justify-content-center align-items-center"
             :for="'option-' + index">
@@ -24,18 +24,19 @@ defineEmits(['select'])
 </script>
 
 <style scoped>
-.answer-option {
+.respuesta-option {
     height: 35vh;
     width: 100%;
     border-radius: 20px;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
     overflow: hidden;
 }
 
-.answer-option:hover {
+.respuesta-option:hover {
     transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .stretched-label {
@@ -46,8 +47,10 @@ defineEmits(['select'])
     line-clamp: 3;
 }
 
+
+
 @media (min-width: 768px) {
-    .answer-option {
+    .respuesta-option {
         height: 50vh;
         /* Aumenta más la altura de las respuestas */
         font-size: 1.5rem;
@@ -96,7 +99,7 @@ defineEmits(['select'])
 }
 
 @media (max-width: 768px) {
-    .answer-option {
+    .respuesta-option {
         height: 25vh !important;
         font-size: 1.1rem !important;
     }

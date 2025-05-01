@@ -10,7 +10,7 @@ import AppMessages from './components/AppMessages.vue'
 
     <header class="bg-blue-600 dark:text-gray-100 py-4 shadow">
       <div class="container mx-auto px-4">
-        <h1 class="text-2xl font-semibold">Juego de Preguntas</h1>
+        <h1 class="text-2xl font-semibold">Juego de Dilems</h1>
       </div>
     </header>
 

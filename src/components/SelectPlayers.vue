@@ -1,20 +1,34 @@
 <template>
     <div class="container mt-5">
         <div class="card shadow">
-            <div class="card-body">
-                <h2 class="card-title text-center mb-4">Selecciona el número de jugadores</h2>
+            <div class="card-body text-center">
+                <h2 class="card-title mb-4">Selecciona el modo de juego</h2>
 
-                <div class="form-check border rounded p-2 mb-3" v-for="option in opciones" :key="option.value">
-                    <input :id="`radio-${option.value}`" type="radio" :value="option.value" v-model="jugadores"
-                        name="jugadores" class="form-check-input" />
-                    <label :for="`radio-${option.value}`" class="form-check-label ms-2">
+                <div class="d-flex flex-column gap-3 mb-4">
+                    <button v-for="option in opciones" :key="option.value" :class="[
+                        'btn btn-lg',
+                        jugadores === option.value ? 'btn-primary' : 'btn-outline-primary'
+                    ]" @click="jugadores = option.value">
                         {{ option.label }}
-                    </label>
+                    </button>
                 </div>
 
-                <button class="btn btn-primary w-100" @click="confirmarJugadores" :disabled="!jugadores">
-                    Confirmar
-                </button>
+                <form @submit.prevent="confirmarJugadores" v-if="jugadores">
+                    <div v-for="index in jugadores" :key="index" class="mb-3">
+                        <label :for="'nombre-' + index" class="form-label">Nombre del jugador {{ index }}</label>
+                        <input :id="'nombre-' + index" v-model="nombres[index - 1]" class="form-control" required>
+                    </div>
+                    <div v-for="index in jugadores" :key="index" class="mb-3">
+                        <label :for="'color-' + index" class="form-label">Color del jugador {{ index }}</label>
+                        <select :id="'color-' + index" v-model="colores[index - 1]" class="form-select" required>
+                            <option value="rojo">Rojo</option>
+                            <option value="azul">Azul</option>
+                            <option value="verde">Verde</option>
+                            <option value="amarillo">Amarillo</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Confirmar</button>
+                </form>
             </div>
         </div>
     </div>
@@ -26,6 +40,8 @@ import { useGameStore } from '../stores/useGameStore'
 
 const store = useGameStore()
 const jugadores = ref(null)
+const nombres = ref([])
+const colores = ref([])
 
 const opciones = [
     { label: 'Un jugador', value: 1 },
@@ -33,7 +49,13 @@ const opciones = [
 ]
 
 function confirmarJugadores() {
-    if (!jugadores.value) return
-    store.setNumJugadores(jugadores.value)
+    if (!jugadores.value || nombres.value.length !== jugadores.value || colores.value.length !== jugadores.value) return
+
+    const jugadoresData = nombres.value.map((nombre, index) => {
+        return { name: nombre, color: colores.value[index] }
+    })
+
+    // Guardar los jugadores en algún lugar, por ejemplo, en el store
+    store.setJugadores(jugadoresData)
 }
 </script>

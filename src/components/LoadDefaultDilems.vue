@@ -2,7 +2,7 @@
     <h1 class="m-2 text-center">Dilemas Predefinidos</h1>
     <div class="m-2 d-flex justify-content-center align-items-stretch w-100 flex-wrap gap-3">
         <div v-for="(file, index) in files" :key="index" class="dilems card text-center" style="width: 18rem;">
-            <img :src="`/app/DefaultQuestions/${file}/img.png`" class="card-img-top img-fluid" alt="Imagen"
+            <img :src="`/app/DefaultDilems/${file}/img.png`" class="card-img-top img-fluid" alt="Imagen"
                 style="height: 180px; object-fit: cover;" />
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">{{ file }}</h5>
@@ -16,10 +16,8 @@
 
 <script setup>
 import { useGameStore } from '../stores/useGameStore'
-import { useRouter } from 'vue-router'
 
 const store = useGameStore()
-const router = useRouter()
 
 const files = [
     'dilems',
@@ -31,12 +29,12 @@ const files = [
 ]
 
 async function dilemas(file) {
-    await store.cargarPreguntasPredefinidas(file)
+    await store.cargarDilemsPredefinidas(file)
     redirect()
 }
 
 function redirect() {
-    router.push({ name: 'playDilems' })
+    store.router.push({ name: 'playDilems' })
 }
 </script>
 
