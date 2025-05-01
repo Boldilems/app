@@ -10,7 +10,7 @@ export const useGameStore = defineStore('game', {
         dilems: [],
         dilemsCurrentIndex: 0,
         dilemsCurrent: {},
-        respuestas: null,
+        respuestas: JSON.parse(localStorage.getItem('respuestas') || 'null'),
         mensajes: [],
         jugadorCurrent: {},
         jugadores: [],
@@ -27,16 +27,20 @@ export const useGameStore = defineStore('game', {
             this.addMensaje('Dilems cargadas correctamente', 'success')
         },
         setJugadores(jugadores) {
-            this.respuestas = {}
+            if (this.respuestas === null) {
+                this.respuestas = {}
+            }
             jugadores.forEach((jugador, index) => {
                 this.jugadores.push({
                     name: jugador.name,
                     color: jugador.color,
                     id: `jugador${index + 1}`
                 });
-                this.respuestas[`jugador${index + 1}`] = {
-                    name: jugador.name,
-                    respuestas: []
+                if (this.respuestas[`jugador${index + 1}`] === undefined) {
+                    this.respuestas[`jugador${index + 1}`] = {
+                        name: jugador.name,
+                        respuestas: []
+                    }
                 }
             });
             this.jugadorCurrent = this.jugadores[0]
@@ -60,20 +64,29 @@ export const useGameStore = defineStore('game', {
             return true;
         },
         saveRespuesta(respuesta) {
+            console.log(this.respuestas[this.jugadorCurrent.id].respuestas);
             const respuestas = this.respuestas[this.jugadorCurrent.id].respuestas.length
             this.respuestas[this.jugadorCurrent.id].respuestas[respuestas] = { dilems: this.dilems[this.dilemsCurrentIndex].text, respuesta: respuesta, opciones: this.dilems[this.dilemsCurrentIndex].options }
             this.continuar = this.nextJugador()
+            localStorage.setItem('respuestas', JSON.stringify(this.respuestas))
+        },
+        clearRespuestas() {
+            const n = this.jugadores.length
+            for (let i = 1; i <= n; i++) {
+                this.respuestas[`jugador${i}`].respuestas = []
+            }
+            localStorage.setItem('respuestas', null)
         },
         continueGame() {
             this.dilems = []
             this.router.push({ name: 'loadDilems' })
+            this.continuar = true
         },
         resetGame() {
             this.dilems = []
             this.dilemsCurrentIndex = 0
             this.dilemsCurrent = {}
             this.numJugadores = null
-            this.respuestas = null
             this.mensajes = []
             this.jugadorCurrent = {}
             this.jugadores = []
@@ -106,6 +119,17 @@ export const useGameStore = defineStore('game', {
 
         removeMensaje(id) {
             this.mensajes = this.mensajes.filter(m => m.id !== id)
+        },
+        downloadRespuestas() {
+            this.addMensaje('Descargando respuestas...', 'success')
+            const blob = new Blob([JSON.stringify(this.respuestas, null, 2)], { type: 'application/json' })
+            const url = URL.createObjectURL(blob)
+            const link = document.createElement('a')
+            link.href = url
+            link.download = 'respuestas.json'
+            link.click()
+            URL.revokeObjectURL(url)
+            this.clearRespuestas()
         }
     }
 })
