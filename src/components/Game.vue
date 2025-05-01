@@ -59,7 +59,6 @@ function submitAnswer() {
     currentIndex.value++
 
     if (currentIndex.value >= store.preguntas.length) {
-        // descargarRespuestas()
         store.preguntas = []
     }
 }
