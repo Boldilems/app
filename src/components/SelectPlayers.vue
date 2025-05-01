@@ -13,9 +13,22 @@
                     </button>
                 </div>
 
-                <button class="btn btn-success w-100" @click="confirmarJugadores" :disabled="!jugadores">
-                    Confirmar
-                </button>
+                <form @submit.prevent="confirmarJugadores" v-if="jugadores">
+                    <div v-for="index in jugadores" :key="index" class="mb-3">
+                        <label :for="'nombre-' + index" class="form-label">Nombre del jugador {{ index }}</label>
+                        <input :id="'nombre-' + index" v-model="nombres[index - 1]" class="form-control" required>
+                    </div>
+                    <div v-for="index in jugadores" :key="index" class="mb-3">
+                        <label :for="'color-' + index" class="form-label">Color del jugador {{ index }}</label>
+                        <select :id="'color-' + index" v-model="colores[index - 1]" class="form-select" required>
+                            <option value="rojo">Rojo</option>
+                            <option value="azul">Azul</option>
+                            <option value="verde">Verde</option>
+                            <option value="amarillo">Amarillo</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Confirmar</button>
+                </form>
             </div>
         </div>
     </div>
@@ -27,6 +40,8 @@ import { useGameStore } from '../stores/useGameStore'
 
 const store = useGameStore()
 const jugadores = ref(null)
+const nombres = ref([])
+const colores = ref([])
 
 const opciones = [
     { label: 'Un jugador', value: 1 },
@@ -34,15 +49,13 @@ const opciones = [
 ]
 
 function confirmarJugadores() {
-    if (!jugadores.value) return
-    store.setNumJugadores(jugadores.value)
+    if (!jugadores.value || nombres.value.length !== jugadores.value || colores.value.length !== jugadores.value) return
+
+    const jugadoresData = nombres.value.map((nombre, index) => {
+        return { name: nombre, color: colores.value[index] }
+    })
+
+    // Guardar los jugadores en algún lugar, por ejemplo, en el store
+    store.setJugadores(jugadoresData)
 }
 </script>
-
-<style scoped>
-.btn-lg {
-    padding: 1rem;
-    font-size: 1.25rem;
-    border-radius: 1rem;
-}
-</style>

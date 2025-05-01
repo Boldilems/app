@@ -16,7 +16,7 @@
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'loadDilems' }" aria-current="page">Cargar
-                            Preguntas</router-link>
+                            Dilems</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'playDilems' }">Jugar</router-link>

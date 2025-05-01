@@ -16,10 +16,8 @@
 
 <script setup>
 import { useGameStore } from '../stores/useGameStore'
-import { useRouter } from 'vue-router'
 
 const store = useGameStore()
-const router = useRouter()
 
 const files = [
     'dilems',
@@ -31,12 +29,12 @@ const files = [
 ]
 
 async function dilemas(file) {
-    await store.cargarPreguntasPredefinidas(file)
+    await store.cargarDilemsPredefinidas(file)
     redirect()
 }
 
 function redirect() {
-    router.push({ name: 'playDilems' })
+    store.router.push({ name: 'playDilems' })
 }
 </script>
 

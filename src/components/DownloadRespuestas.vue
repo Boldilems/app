@@ -16,10 +16,7 @@ import { useGameStore } from '../stores/useGameStore'
 const store = useGameStore()
 
 function descargarRespuestas() {
-    const jugadorKey = `jugador1`
-    const respuestas = store.respuestas[jugadorKey]
-
-    const blob = new Blob([JSON.stringify(respuestas, null, 2)], { type: 'application/json' })
+    const blob = new Blob([JSON.stringify(store.respuestas, null, 2)], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url

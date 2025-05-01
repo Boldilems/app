@@ -10,10 +10,7 @@ import { useGameStore } from '../stores/useGameStore'
 
 const store = useGameStore()
 
-import { useRouter } from 'vue-router'
-const $router = useRouter()
-
 function goToLoadDilems() {
-    $router.push({ name: 'loadDilems' })
+    store.router.push({ name: 'loadDilems' })
 }
 </script>
