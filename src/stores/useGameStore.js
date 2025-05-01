@@ -67,6 +67,7 @@ export const useGameStore = defineStore('game', {
         continueGame() {
             this.dilems = []
             this.router.push({ name: 'loadDilems' })
+            this.continuar = true
         },
         resetGame() {
             this.dilems = []
