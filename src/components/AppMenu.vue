@@ -21,7 +21,7 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{ name: 'playDilems' }">Jugar</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" v-if="store.respuestas != null">
                         <router-link class="nav-link" :to="{ name: 'downloadDilems' }" aria-current="page">Descargar
                             Respuestas</router-link>
                     </li>
@@ -41,8 +41,9 @@
     </nav>
 </template>
 
-<script>
-// No se requiere lógica adicional porque Vue Router maneja la navegación.
+<script setup>
+import { useGameStore } from '../stores/useGameStore'
+const store = useGameStore()
 </script>
 
 <style scoped>
