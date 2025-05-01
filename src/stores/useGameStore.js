@@ -1,7 +1,6 @@
 // src/store/useGameStore.ts
 import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
-import DownloadRespuestas from '../components/DownloadRespuestas.vue'
 
 let nextId = 0
 
@@ -11,7 +10,7 @@ export const useGameStore = defineStore('game', {
         dilems: [],
         dilemsCurrentIndex: 0,
         dilemsCurrent: {},
-        respuestas: null,
+        respuestas: JSON.parse(localStorage.getItem('respuestas') || 'null'),
         mensajes: [],
         jugadorCurrent: {},
         jugadores: [],
@@ -37,9 +36,11 @@ export const useGameStore = defineStore('game', {
                     color: jugador.color,
                     id: `jugador${index + 1}`
                 });
-                this.respuestas[`jugador${index + 1}`] = {
-                    name: jugador.name,
-                    respuestas: []
+                if (this.respuestas[`jugador${index + 1}`] === undefined) {
+                    this.respuestas[`jugador${index + 1}`] = {
+                        name: jugador.name,
+                        respuestas: []
+                    }
                 }
             });
             this.jugadorCurrent = this.jugadores[0]
@@ -63,15 +64,18 @@ export const useGameStore = defineStore('game', {
             return true;
         },
         saveRespuesta(respuesta) {
+            console.log(this.respuestas[this.jugadorCurrent.id].respuestas);
             const respuestas = this.respuestas[this.jugadorCurrent.id].respuestas.length
             this.respuestas[this.jugadorCurrent.id].respuestas[respuestas] = { dilems: this.dilems[this.dilemsCurrentIndex].text, respuesta: respuesta, opciones: this.dilems[this.dilemsCurrentIndex].options }
             this.continuar = this.nextJugador()
+            localStorage.setItem('respuestas', JSON.stringify(this.respuestas))
         },
         clearRespuestas() {
             const n = this.jugadores.length
             for (let i = 1; i <= n; i++) {
                 this.respuestas[`jugador${i}`].respuestas = []
             }
+            localStorage.setItem('respuestas', null)
         },
         continueGame() {
             this.dilems = []
