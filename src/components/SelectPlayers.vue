@@ -21,10 +21,10 @@
                     <div v-for="index in jugadores" :key="index" class="mb-3">
                         <label :for="'color-' + index" class="form-label">Color del jugador {{ index }}</label>
                         <select :id="'color-' + index" v-model="colores[index - 1]" class="form-select" required>
-                            <option value="rojo">Rojo</option>
-                            <option value="azul">Azul</option>
-                            <option value="verde">Verde</option>
-                            <option value="amarillo">Amarillo</option>
+                            <option value="#e74c3c">Rojo</option>
+                            <option value="#3498db">Azul</option>
+                            <option value="#2ecc71">Verde</option>
+                            <option value="#f4d03f">Amarillo</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Confirmar</button>

@@ -5,11 +5,15 @@
             <!-- Respuesta 1 -->
             <div class="col-12 col-md-4">
                 <FieldRespuesta :option="store.dilemsCurrent.options[0]" :index="0" :selected="selectedRespuesta"
-                    :variant="'one'" @select="selectedRespuesta = $event" />
+                    variant="one" @select="selectedRespuesta = $event"
+                    :jugadores="getJugadoresPorOpcion(store.dilemsCurrent.options[0])" />
+
             </div>
 
             <!-- Botones -->
             <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center gap-3">
+                <JugadorCurrente />
+
                 <h3 class="text-center mb-3 fw-bold fs-4 text-dark">
                     {{ store.dilemsCurrent.text }}
                 </h3>
@@ -21,7 +25,9 @@
             <!-- Respuesta 2 -->
             <div class="col-12 col-md-4">
                 <FieldRespuesta :option="store.dilemsCurrent.options[1]" :index="1" :selected="selectedRespuesta"
-                    :variant="'two'" @select="selectedRespuesta = $event" />
+                    variant="two" @select="selectedRespuesta = $event"
+                    :jugadores="getJugadoresPorOpcion(store.dilemsCurrent.options[1])" />
+
             </div>
         </div>
     </div>
@@ -43,6 +49,7 @@
 import { ref } from 'vue'
 import { useGameStore } from '../stores/useGameStore'
 import FieldRespuesta from './FieldRespuesta.vue'
+import JugadorCurrente from './JugadorCurrente.vue'
 
 const store = useGameStore()
 const selectedRespuesta = ref(null)
@@ -58,5 +65,28 @@ function endGame() {
 }
 function nextGame() {
     store.continueGame()
+}
+function getJugadoresPorOpcion(option) {
+    let jugadores = []
+
+    if (option === selectedRespuesta.value) {
+        jugadores.push(store.jugadorCurrent)
+    }
+
+
+    if (store.jugadores.length > 1) {
+        store.jugadores.forEach(jugador => {
+            if (jugador.id !== store.jugadorCurrent.id) {
+                const j = store.respuestas[jugador.id]
+                j.respuestas.forEach((value) => {
+                    if (value.respuesta === option) {
+                        jugadores.push(jugador)
+                    }
+                })
+            }
+        });
+
+    }
+    return jugadores
 }
 </script>
