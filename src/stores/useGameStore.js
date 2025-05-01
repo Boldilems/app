@@ -1,6 +1,7 @@
 // src/store/useGameStore.ts
 import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
+import DownloadRespuestas from '../components/DownloadRespuestas.vue'
 
 let nextId = 0
 
@@ -27,7 +28,9 @@ export const useGameStore = defineStore('game', {
             this.addMensaje('Dilems cargadas correctamente', 'success')
         },
         setJugadores(jugadores) {
-            this.respuestas = {}
+            if (this.respuestas === null) {
+                this.respuestas = {}
+            }
             jugadores.forEach((jugador, index) => {
                 this.jugadores.push({
                     name: jugador.name,
@@ -64,6 +67,12 @@ export const useGameStore = defineStore('game', {
             this.respuestas[this.jugadorCurrent.id].respuestas[respuestas] = { dilems: this.dilems[this.dilemsCurrentIndex].text, respuesta: respuesta, opciones: this.dilems[this.dilemsCurrentIndex].options }
             this.continuar = this.nextJugador()
         },
+        clearRespuestas() {
+            const n = this.jugadores.length
+            for (let i = 1; i <= n; i++) {
+                this.respuestas[`jugador${i}`].respuestas = []
+            }
+        },
         continueGame() {
             this.dilems = []
             this.router.push({ name: 'loadDilems' })
@@ -74,7 +83,6 @@ export const useGameStore = defineStore('game', {
             this.dilemsCurrentIndex = 0
             this.dilemsCurrent = {}
             this.numJugadores = null
-            this.respuestas = null
             this.mensajes = []
             this.jugadorCurrent = {}
             this.jugadores = []
@@ -107,6 +115,17 @@ export const useGameStore = defineStore('game', {
 
         removeMensaje(id) {
             this.mensajes = this.mensajes.filter(m => m.id !== id)
+        },
+        downloadRespuestas() {
+            this.addMensaje('Descargando respuestas...', 'success')
+            const blob = new Blob([JSON.stringify(this.respuestas, null, 2)], { type: 'application/json' })
+            const url = URL.createObjectURL(blob)
+            const link = document.createElement('a')
+            link.href = url
+            link.download = 'respuestas.json'
+            link.click()
+            URL.revokeObjectURL(url)
+            this.clearRespuestas()
         }
     }
 })
