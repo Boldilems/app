@@ -3,26 +3,6 @@ import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 
 let nextId = 0
-// function equals(dilem, respuesta) {
-//     let a = dilem.dilems === respuesta.text
-//     let b = dilem.opciones.length === respuesta.options.length
-//     let c = false;
-//     dilem.opciones.forEach((opcion, index) => {
-//         if (opcion.opcion === respuesta.options[index].opcion) {
-//             c = true
-//         }
-//     })
-
-//     return a && b && c
-// }
-
-function formatToDilem(dilem, respuesta) {
-    return {
-        dilem: dilem.text,
-        respuesta: respuesta,
-        opciones: dilem.options
-    }
-}
 
 export const useGameStore = defineStore('game', {
     state: () => ({
@@ -36,6 +16,7 @@ export const useGameStore = defineStore('game', {
         jugadorCurrent: {},
         jugadores: [],
         continuar: true,
+        dilemsJugados: JSON.parse(localStorage.getItem('dilemsJugados') || '[]'),
     }),
     actions: {
         cargarDilems(data) {
@@ -86,7 +67,16 @@ export const useGameStore = defineStore('game', {
         },
         lastJugador() {
             const currentIndex = this.jugadores.findIndex(j => j.id === this.jugadorCurrent.id)
+
+            if (this.dilemsCurrentIndex === 0 && currentIndex === 0) {
+                this.addMensaje('No hay dilem anterior', 'error')
+                return false
+            }
+
             const lastIndex = (currentIndex) === this.jugadores.length - 1 ? 0 : currentIndex
+            if (lastIndex === this.jugadores.length - 1) {
+                this.dilemsCurrentIndex--
+            }
 
             const jugador = this.jugadores[lastIndex]
             const longitud = this.respuestas[jugador.id].respuestas.length
@@ -120,21 +110,25 @@ export const useGameStore = defineStore('game', {
             this.jugadorCurrent = jugador
             this.dilemsCurrent = dilem
             this.respuestas[jugador.id].respuestas.pop();
-            this.dilemsCurrentIndex--
+
         },
         saveRespuesta(respuesta) {
-            console.log(this.respuestas[this.jugadorCurrent.id].respuestas);
             const respuestas = this.respuestas[this.jugadorCurrent.id].respuestas.length
             this.respuestas[this.jugadorCurrent.id].respuestas[respuestas] = { dilems: this.dilems[this.dilemsCurrentIndex].text, respuesta: respuesta, opciones: this.dilems[this.dilemsCurrentIndex].options }
             this.continuar = this.nextJugador()
             localStorage.setItem('respuestas', JSON.stringify(this.respuestas))
+        },
+        disableDilem(name) {
+            return this.dilemsJugados.includes(name)
         },
         clearRespuestas() {
             const n = this.jugadores.length
             for (let i = 1; i <= n; i++) {
                 this.respuestas[`jugador${i}`].respuestas = []
             }
+            this.dilemsJugados = []
             localStorage.setItem('respuestas', null)
+            localStorage.setItem('dilemsJugados', null)
         },
         continueGame() {
             this.dilems = []
@@ -152,6 +146,11 @@ export const useGameStore = defineStore('game', {
             this.continuar = true
         },
         async cargarDilemsPredefinidas(name) {
+            if (this.dilemsJugados.includes(name)) {
+                this.addMensaje('Ya has jugado esta dilem', 'error')
+                return;
+            }
+
             if (!name) {
                 this.addMensaje('Nombre de archivo no especificado', 'error')
                 return;
@@ -163,6 +162,8 @@ export const useGameStore = defineStore('game', {
                 if (!dilems.ok) throw new Error('Error al cargar el JSON.');
                 const data = await dilems.json();
                 this.cargarDilems(data);
+                this.dilemsJugados.push(name);
+                localStorage.setItem('dilemsJugados', JSON.stringify(this.dilemsJugados))
             } catch (error) {
                 this.addMensaje('Error al cargar dilems: ' + error.message, 'error')
             }
