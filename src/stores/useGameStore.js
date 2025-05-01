@@ -6,6 +6,7 @@ let nextId = 0
 
 export const useGameStore = defineStore('game', {
     state: () => ({
+        redirect: false,
         router: useRouter(),
         dilems: [],
         dilemsCurrentIndex: 0,
