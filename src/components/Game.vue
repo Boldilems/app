@@ -12,6 +12,8 @@
 
             <!-- Botones -->
             <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center gap-3">
+                <JugadorCurrente />
+
                 <h3 class="text-center mb-3 fw-bold fs-4 text-dark">
                     {{ store.dilemsCurrent.text }}
                 </h3>
@@ -47,6 +49,7 @@
 import { ref } from 'vue'
 import { useGameStore } from '../stores/useGameStore'
 import FieldRespuesta from './FieldRespuesta.vue'
+import JugadorCurrente from './JugadorCurrente.vue'
 
 const store = useGameStore()
 const selectedRespuesta = ref(null)

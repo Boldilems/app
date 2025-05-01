@@ -3,6 +3,26 @@ import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 
 let nextId = 0
+// function equals(dilem, respuesta) {
+//     let a = dilem.dilems === respuesta.text
+//     let b = dilem.opciones.length === respuesta.options.length
+//     let c = false;
+//     dilem.opciones.forEach((opcion, index) => {
+//         if (opcion.opcion === respuesta.options[index].opcion) {
+//             c = true
+//         }
+//     })
+
+//     return a && b && c
+// }
+
+function formatToDilem(dilem, respuesta) {
+    return {
+        dilem: dilem.text,
+        respuesta: respuesta,
+        opciones: dilem.options
+    }
+}
 
 export const useGameStore = defineStore('game', {
     state: () => ({
@@ -63,6 +83,44 @@ export const useGameStore = defineStore('game', {
             }
             this.jugadorCurrent = this.jugadores[currentIndex + 1]
             return true;
+        },
+        lastJugador() {
+            const currentIndex = this.jugadores.findIndex(j => j.id === this.jugadorCurrent.id)
+            const lastIndex = (currentIndex) === this.jugadores.length - 1 ? 0 : currentIndex
+
+            const jugador = this.jugadores[lastIndex]
+            const longitud = this.respuestas[jugador.id].respuestas.length
+            const lastRespuesta = this.respuestas[jugador.id].respuestas[[longitud - 1]];
+
+            if (!lastRespuesta) {
+                this.addMensaje('No hay respuestas anteriores', 'error')
+                return false
+            }
+
+            const dilem = this.dilems.find((value) => {
+                let a = value.text === lastRespuesta.dilems;
+                let b = value.options.length === lastRespuesta.opciones.length;
+                let c = false;
+                value.options.forEach((opcion, index) => {
+                    if (opcion === lastRespuesta.opciones[index]) {
+                        c = true;
+                    } else {
+                        c = false;
+                    }
+                });
+
+                return a && b && c;
+            });
+
+            if (!dilem) {
+                this.addMensaje('No hay dilem anterior', 'error')
+                return false
+            }
+
+            this.jugadorCurrent = jugador
+            this.dilemsCurrent = dilem
+            this.respuestas[jugador.id].respuestas.pop();
+            this.dilemsCurrentIndex--
         },
         saveRespuesta(respuesta) {
             console.log(this.respuestas[this.jugadorCurrent.id].respuestas);
