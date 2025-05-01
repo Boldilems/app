@@ -28,7 +28,7 @@
 
         <div v-else class="text-center mt-4">
             <p class="fs-4 fw-bold">¡Juego finalizado!</p>
-            <button @click="downloadResponses" class="btn btn-success mt-4">
+            <button @click="descargarRespuestas" class="btn btn-success mt-4">
                 Descargar Respuestas
             </button>
         </div>
@@ -59,12 +59,12 @@ function submitAnswer() {
     currentIndex.value++
 
     if (currentIndex.value >= store.preguntas.length) {
-        // downloadResponses()
+        // descargarRespuestas()
         store.preguntas = []
     }
 }
 
-function downloadResponses() {
+function descargarRespuestas() {
     const jugadorKey = `jugador1`
     const respuestas = store.respuestas[jugadorKey]
 

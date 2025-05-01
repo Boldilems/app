@@ -8,7 +8,7 @@
     <div v-else
         class="min-h-screen d-flex flex-column align-items-center justify-content-center bg-gray-100 dark:bg-gray-900 p-4">
         <h1 class="m-3 mb-5">Primero se tienen que cargar las preguntas:</h1>
-        <button @click="goToLoadQuestions" class="btn btn-primary">Ir a Cargar Preguntas</button>
+        <button @click="goToLoadDilems" class="btn btn-primary">Ir a Cargar Preguntas</button>
     </div>
 </template>
 
@@ -22,7 +22,7 @@ const store = useGameStore()
 import { useRouter } from 'vue-router'
 const $router = useRouter()
 
-function goToLoadQuestions() {
+function goToLoadDilems() {
     $router.push({ name: 'loadDilems' })
 }
 </script>

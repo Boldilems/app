@@ -33,11 +33,11 @@ export const useGameStore = defineStore('game', {
                 return;
             }
 
-            const path = `/app/DefaultQuestions/${name}/${name}.json`;
+            const path = `/app/DefaultDilems/${name}/${name}.json`;
             try {
-                const response = await fetch(path);
-                if (!response.ok) throw new Error('Error al cargar el JSON.');
-                const data = await response.json();
+                const respuestas = await fetch(path);
+                if (!respuestas.ok) throw new Error('Error al cargar el JSON.');
+                const data = await respuestas.json();
                 this.cargarPreguntas(data);
             } catch (error) {
                 this.addMensaje('Error al cargar preguntas: ' + error.message, 'error')
