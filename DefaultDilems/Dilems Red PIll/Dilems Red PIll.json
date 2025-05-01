@@ -1,0 +1,189 @@
+[
+    {
+        "dilem": "Tienes que elegir una pareja para toda la vida:",
+        "opciones": [
+            {
+                "opcion": "Una mujer con pasado, pero extremadamente leal"
+            },
+            {
+                "opcion": "Una mujer inocente, pero insegura de lo que quiere"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué aceptarías más fácil en tu pareja?",
+        "opciones": [
+            {
+                "opcion": "Que haya tenido muchos ex"
+            },
+            {
+                "opcion": "Que nunca haya tenido una relación seria"
+            }
+        ]
+    },
+    {
+        "dilem": "Te ofrecen dos futuros amorosos:",
+        "opciones": [
+            {
+                "opcion": "Una pareja que te admira pero que tú no amas"
+            },
+            {
+                "opcion": "Una pareja que amas pero que nunca te respeta del todo"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué preferirías ser para tu pareja?",
+        "opciones": [
+            {
+                "opcion": "Su proveedor y protector"
+            },
+            {
+                "opcion": "Su mejor amigo con igualdad total"
+            }
+        ]
+    },
+    {
+        "dilem": "Imagina que pierdes todo mañana:",
+        "opciones": [
+            {
+                "opcion": "Una pareja que se queda contigo pero pierde el deseo"
+            },
+            {
+                "opcion": "Una que se va pero siempre te deseó"
+            }
+        ]
+    },
+    {
+        "dilem": "Un dilema de pareja moderna:",
+        "opciones": [
+            {
+                "opcion": "Salir con alguien con OnlyFans"
+            },
+            {
+                "opcion": "Salir con alguien que gana la mitad que tú y quiere ser ama de casa"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Qué es más importante para una relación duradera?",
+        "opciones": [
+            {
+                "opcion": "Respeto"
+            },
+            {
+                "opcion": "Atracción sexual constante"
+            }
+        ]
+    },
+    {
+        "dilem": "Elige tu compañera ideal:",
+        "opciones": [
+            {
+                "opcion": "Físicamente perfecta, pero mentalmente frágil"
+            },
+            {
+                "opcion": "Fuerte mentalmente, pero sin atractivo físico"
+            }
+        ]
+    },
+    {
+        "dilem": "En un mundo donde solo una sobrevive:",
+        "opciones": [
+            {
+                "opcion": "La mujer que siempre soñaste, pero que no cree en compromisos"
+            },
+            {
+                "opcion": "Una que cree en la familia, pero no te atrae tanto"
+            }
+        ]
+    },
+    {
+        "dilem": "Una pareja perfecta excepto por un detalle:",
+        "opciones": [
+            {
+                "opcion": "Nunca quiere casarse"
+            },
+            {
+                "opcion": "Nunca quiere tener hijos"
+            }
+        ]
+    },
+    {
+        "dilem": "Elige el tipo de fidelidad que valoras más:",
+        "opciones": [
+            {
+                "opcion": "Fidelidad emocional (no coquetea, no habla con ex)"
+            },
+            {
+                "opcion": "Fidelidad física (nunca te engañaría sexualmente)"
+            }
+        ]
+    },
+    {
+        "dilem": "Te ofrecen cambiar el pasado de tu pareja:",
+        "opciones": [
+            {
+                "opcion": "Borrar todos sus ex y sus errores"
+            },
+            {
+                "opcion": "Mantener todo, pero que nunca te mienta"
+            }
+        ]
+    },
+    {
+        "dilem": "El mundo te da dos opciones:",
+        "opciones": [
+            {
+                "opcion": "Ser un hombre que todas las mujeres desean pero nadie se queda"
+            },
+            {
+                "opcion": "Ser uno que una mujer elige, pero nadie más mira"
+            }
+        ]
+    },
+    {
+        "dilem": "Una realidad incómoda:",
+        "opciones": [
+            {
+                "opcion": "Tu pareja gana más que tú y te lo recuerda a menudo"
+            },
+            {
+                "opcion": "Tú mantienes todo pero nunca sientes gratitud"
+            }
+        ]
+    },
+    {
+        "dilem": "¿Con quién construirías un imperio?",
+        "opciones": [
+            {
+                "opcion": "Una mujer ambiciosa que compite contigo"
+            },
+            {
+                "opcion": "Una mujer que te apoya desde atrás sin buscar protagonismo"
+            }
+        ]
+    },
+    {
+        "dilem": "Solo puedes elegir un rasgo dominante en tu pareja:",
+        "opciones": [
+            {
+                "opcion": "Lealtad absoluta"
+            },
+            {
+                "opcion": "Belleza eterna"
+            }
+        ]
+    },
+    {
+        "dilem": "Tu pareja ideal solo puede tener una de estas cualidades:",
+        "opciones": [
+            {
+                "opcion": "Sumisión y apoyo incondicional"
+            },
+            {
+                "opcion": "Independencia y fuerza total"
+            }
+        ]
+    }
+]
