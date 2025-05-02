@@ -1,25 +1,25 @@
 <!-- src/components/Game.vue -->
 <template>
     <div v-if="store.continuar" class="container-fluid h-100">
-        <div class="row h-100 align-items-center justify-content-center g-4">
+        <div class="row h-100 align-items-center justify-content-center g-4 game-layout">
             <!-- Respuesta 1 -->
             <div class="col-12 col-md-4">
                 <FieldRespuesta :option="store.dilemsCurrent.options[0]" :index="0" :selected="selectedRespuesta"
                     variant="one" @select="selectedRespuesta = $event"
                     :jugadores="getJugadoresPorOpcion(store.dilemsCurrent.options[0])" />
-
             </div>
 
-            <!-- Botones -->
-            <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center gap-3">
-                <JugadorCurrente />
-
-                <h3 class="text-center mb-3 fw-bold fs-4 text-dark">
-                    {{ store.dilemsCurrent.text }}
-                </h3>
-                <button @click="submitRespuesta" :disabled="!selectedRespuesta" class="btn btn-primary w-75">
-                    Siguiente
-                </button>
+            <!-- Contenido central -->
+            <div id="central" class="col-12 col-md-4 d-flex  contenido-central">
+                <JugadorCurrente class="jugador-currente" />
+                <div class="row" id="dilemText">
+                    <h3 class="text-center mb-3 fw-bold fs-4 text-dark">
+                        {{ store.dilemsCurrent.text }}
+                    </h3>
+                    <button @click="submitRespuesta" :disabled="!selectedRespuesta" class="btn btn-primary w-75">
+                        Siguiente
+                    </button>
+                </div>
             </div>
 
             <!-- Respuesta 2 -->
@@ -27,7 +27,6 @@
                 <FieldRespuesta :option="store.dilemsCurrent.options[1]" :index="1" :selected="selectedRespuesta"
                     variant="two" @select="selectedRespuesta = $event"
                     :jugadores="getJugadoresPorOpcion(store.dilemsCurrent.options[1])" />
-
             </div>
         </div>
     </div>
@@ -44,6 +43,34 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+#dilemText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#central {
+    flex-direction: column;
+}
+
+/* src/assets/styles.css o dentro del componente con <style scoped> */
+
+@media (max-width: 768px) {
+    .contenido-central {
+        order: -1;
+        /* Mueve el bloque central arriba */
+    }
+
+    .game-layout {
+        flex-direction: column;
+    }
+
+}
+</style>
+
 
 <script setup>
 import { ref } from 'vue'
